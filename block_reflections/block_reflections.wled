@@ -42,11 +42,6 @@
 
 program block_reflections {
 
-  t1=0
-  t2=0
-  t3=0
-  t4=0
-
   function renderFrame() {
     t2 = time(0.1) * 6.2832
     t1 = time(0.1)
@@ -55,7 +50,6 @@ program block_reflections {
   }
 
   function renderLed(index) {
-
     h = sin(t2)
     m = (0.3 + triangle(t1) * 0.2)
     hh = (index - ledCount / 2) / ledCount
