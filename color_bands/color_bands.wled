@@ -1,0 +1,60 @@
+/* color bands
+
+   By: PixelBlaze
+
+   Converted by: Andrew Tuline
+
+   Date: Dec, 2021
+
+   This code was adapted from a shared Pixelblaze pattern. For more information
+   about creating patterns with Pixelblaze and the shared pattern library, see:
+
+   PixelBlaze as found at https://electromage.com/
+
+   PixelBlaze expressions: https://github.com/simap/pixelblaze/blob/master/README.expressions.md
+
+   Getting started guide: https://www.bhencke.com/pixelblazegettingstarted
+
+   Patterns: https://electromage.com/patterns
+
+
+   Original code:
+
+   export function beforeRender(delta) {
+     t1 = time(.5)*2
+     t2 = time(.25)
+     t3 = time(.15)
+   }
+
+   export function render(index) {
+     h = index/(pixelCount/2)
+     s = wave(-index/3 + t2)
+     s = 1-s*s*s*s
+     v = wave(index/2 + t3) * wave(index/5 - t3) + wave(index/7 + t3)
+     v = v*v*v*v
+     hsv(h, s, v)
+   }
+
+*/
+
+
+program color_bands {
+  
+  function renderFrame() {
+    t1 = time(0.5) * 2
+    t2 = time(0.25)
+    t3 = time(0.15)
+  }
+
+  function renderLed(index) {
+    h = index/(ledCount/2)
+    s = wave((0-1)*index/3 + t2)
+    s = 1-s*s*s*s
+
+    v = wave(index/2 + t3) * wave(index/5 - t3)
+    v = v + wave(index/7 + t3)
+    v = v*v*v*v
+
+    leds[index] = hsv(h * 255, s * 255, v * 255)
+  }
+}
