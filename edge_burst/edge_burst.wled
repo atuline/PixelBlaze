@@ -38,15 +38,15 @@
 program edge_burst {
 
   function renderFrame() {
-    t1 = triangle(time(0.1))
+    t1 = triangle(time(.1))
   }
 
   function renderLed(index) {
     f = index/ledCount
-    edge = triangle(f) + t1*4 - 2
-//    edge = clamp(triangle(f) + t1 * 4 - 2, 0, 1)
+//    edge = triangle(f) + t1*4 - 2
+    edge = clamp(triangle(f) + t1 * 4 - 2, 0, 1)
     v = triangle(edge)
-    h = edge * edge - 0.2
+    h = edge * edge - .2
     s = 1
     leds[index] = hsv(h*255, s*255, v*255)
   }
