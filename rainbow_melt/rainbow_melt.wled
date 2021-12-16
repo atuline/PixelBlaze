@@ -1,4 +1,4 @@
-/* fast pulse
+/* rainbow melt
 
    By: PixelBlaze
 
@@ -20,30 +20,40 @@
 
    Original code:
 
+  hl = pixelCount/2
   export function beforeRender(delta) {
-    t1 = time(.1)
+    t1 =  time(.1)
+    t2 = time(0.13)
   }
 
   export function render(index) {
-    v = triangle((2*wave(t1) + index/pixelCount) %1)
-    v = v*v*v*v*v
-    s = v < .9
-    hsv(t1,s,v)
+    c1 = 1-abs(index - hl)/hl
+    c2 = wave(c1)
+    c3 = wave(c2 + t1)
+    v = wave(c3 + t1)
+    v = v*v
+    hsv(c1 + t2,1,v)
   }
 
 */
 
 
-program fast_pulse {
-  
-    function renderFrame() {
-    t1 = time(0.1)
+// Not done
+
+program rainbow_melt {
+  hl = ledCount/2
+
+  function renderLed() {
+    t1 =  time(0.1)
+    t2 = time(0.13)
   }
 
   function renderLed(index) {
-    v = triangle((2*wave(t1) + index/ledCount) %1)
-    v = v*v*v*v*v
-    s = v < 0.9
-    leds[index] = hsv(t1*255,s*255,v*255)
+    c1 = 1-abs(index - hl)/hl
+    c2 = wave(c1)
+    c3 = wave(c2 + t1)
+    v = wave(c3 + t1)
+    v = v*v
+    hsv((c1 + t2)*255,255,v*255)
   }
 }

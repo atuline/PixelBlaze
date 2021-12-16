@@ -1,4 +1,4 @@
-/* fast pulse
+/* opposites
 
    By: PixelBlaze
 
@@ -22,28 +22,44 @@
 
   export function beforeRender(delta) {
     t1 = time(.1)
+    t2 = time(.2)
   }
 
   export function render(index) {
-    v = triangle((2*wave(t1) + index/pixelCount) %1)
-    v = v*v*v*v*v
-    s = v < .9
-    hsv(t1,s,v)
+    il = index/pixelCount
+    w1 = wave(t1 + il)
+    w2 = wave(t2 - il)
+    w3 = wave((il + w1 + w2 )%1)
+    h = w3 %.3
+    h = (h > .15 ? h : h +.5) + t1
+    s = 1
+    v = ((w1+.1) * (w2+.1) * (w3+.1))
+    v = v*v
+    hsv(h,s,v)
   }
 
 */
 
 
-program fast_pulse {
-  
-    function renderFrame() {
+// Not done
+
+program opposites {
+  function renderFrame() {
     t1 = time(0.1)
+    t2 = time(0.2)
   }
 
   function renderLed(index) {
-    v = triangle((2*wave(t1) + index/ledCount) %1)
-    v = v*v*v*v*v
-    s = v < 0.9
-    leds[index] = hsv(t1*255,s*255,v*255)
+    il = index/ledCount
+    w1 = wave(t1 + il)
+    w2 = wave(t2 - il)
+    w3 = wave((il + w1 + w2 ) % 1)
+    h = w3 % 0.3
+    h = (h > 0.15 ? h : h + .5) + t1
+    s = 1
+    v = ((w1+0.1) * (w2+0.1) * (w3+0.1))
+    v = v*v
+    leds[index] = hsv(h*255,s*255,v*255)
   }
+
 }
