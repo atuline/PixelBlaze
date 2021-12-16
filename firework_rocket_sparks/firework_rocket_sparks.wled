@@ -41,23 +41,19 @@
 program firework_rocket_sparks {
 
   function renderFrame() {
-    t1 = time(0.05)
-    t2 = time(0.0001) * 0.2
+    t1 = time(.05)
+    t2 = time(.0001) * 0.2
   }
 
   function renderLed(index) {
 
     v = wave(t1 + index/ledCount)
     v2 = wave(t1 + (index+10)/ledCount)
-    s = (v2 < 0.9995)
-    v = (v > 0.95 && random()/65535 > 0.95) * v
+    s = (v2 < .9995)
+    v = (v > .95 && random()/65535 > .95) * v
     h = random()/65535
   
-    if (s == 1) {
-      h = h }
-      else {
-      h = (index/20) % 0.2
-    }
+    h = ?(s==1)?h:(index/20)%.2
 
     leds[index] = hsv(h * 255, (1-s) * 255, ((1-s) + v) * 255 )
   }

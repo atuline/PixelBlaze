@@ -35,12 +35,11 @@
 
 */
 
-
 program color_twinkle_bounce {
 
   function renderFrame() {
-    t1 = time(0.05)*6.28318
-    t2 = time(0.05)*6.28318
+    t1 = time(.05)*6.28318
+    t2 = time(.05)*6.28318
   }
 
   function renderLed(index) {
@@ -48,7 +47,7 @@ program color_twinkle_bounce {
     aa = index/2 + 5 * (sin(t1))
     a = (1 + sin(aa))/2
     ba = index/2 + 5 * sin(t2)
-    b = time(0.1) + 1 + sin(ba)
+    b = time(.1) + 1 + sin(ba)
     v = a*a*a
     leds[index] = hsv(b * 255, 255, v * 255)
   }
