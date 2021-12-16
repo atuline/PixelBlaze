@@ -1,11 +1,10 @@
 
 ## PixelBlaze to FastLED conversions
 
-This project was created to provide conversion of very simple PixelBlaze routines to be used by FastLED. It is not
-meant to be an ongoing/supported effort.
+This project was created to provide conversion of very simple PixelBlaze routines to be used by FastLED as well as the experimental Custom
+Effects interpreter for the dev branch of the Sound Reactive for of WLED. It is not meant to be an ongoing/supported effort.
 
-It can also be used to help port them over to WLED (not planned), and the (currently in development) ARTI interpreter
-for our sound reactive fork of WLED.
+It can also be used to help port them over to WLED (not currently planned).
 
 
 PixelBlaze functionality provided here includes:
@@ -24,6 +23,7 @@ I've also added a floating point random number generator called:
 Other translation included:
 
 * Conversion of PixelBlaze floating point '%' operator to the C style fmod() function.
+* An interim ternary operator.
 
 
 ## Not included
@@ -49,9 +49,15 @@ Other translation included:
 
     For more information on PixelBlaze, see www.electromage.com.
 
+ ## WLED Custom Effects
+
+    Ewoud Wijma has been implementing a Custom Effects interpreter for the sound reactive fork of WLED. This language
+    is very similar to that of PixelBlaze, and he's added the above PixelBlaze routines in order to make his language
+    very similar to that of PixelBlaze.
 
 
-## Changes
+
+## FastLED Changes
 
 * Use the helper functions in pixelblaze.h.
 * Use index instead of i.
@@ -62,7 +68,7 @@ Other translation included:
 * Sometimes you need to be careful when a number goes < 0.
 
 
-## Instructions
+## Instructions for FastLED
 
 Place a copy of PixelBlaze.h EITHER in each directory that includes a .ino file OR in Documents\Arduino\libraries\PixelBlaze.
 
