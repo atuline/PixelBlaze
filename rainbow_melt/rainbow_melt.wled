@@ -38,22 +38,22 @@
 */
 
 
-// Not done
 
 program rainbow_melt {
-  hl = ledCount/2
 
-  function renderLed() {
-    t1 =  time(0.1)
-    t2 = time(0.13)
+  h1 = ledCount / 2
+
+  function renderFrame() {
+    t1 = time(.1)
+    t2 = time(.13)
   }
 
   function renderLed(index) {
-    c1 = 1-abs(index - hl)/hl
+    c1 = 1 - abs(index - h1) / h1
     c2 = wave(c1)
     c3 = wave(c2 + t1)
     v = wave(c3 + t1)
-    v = v*v
-    hsv((c1 + t2)*255,255,v*255)
+    v = v * v
+    leds[index] = hsv((c1 + t2)*255, 255, v*255)
   }
 }

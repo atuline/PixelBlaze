@@ -35,17 +35,16 @@
 */
 
 
-
 program millipede {
 
   function renderFrame() {
-    t1 = time(0.05)
-    t2 = time(0.1)
+    t1 = time(.05)
+    t2 = time(.1)
   }
 
   function renderLed(index) {
-    ha = index + time(0.1) * ledCount
-    hb = (ha/ledCount * 5) % 0.5
+    ha = index + time(.1) * ledCount
+    hb = (ha/ledCount * 5) % .5
     hc = index/ledCount + wave(t1)
     h = (hb + hc)
     v = wave(h + t2)

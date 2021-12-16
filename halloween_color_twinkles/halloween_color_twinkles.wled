@@ -41,30 +41,30 @@
 */
 
 
-// Not done
-
 program halloween_color_twinkles {
 
-  PI2 = 6.283185
+  PI2 = 6.28318
 
-  export function beforeRender(delta) {
+ function renderFrame() {
     t1 = time(1.50) * PI2
-    t2 = time(.35) * PI2            // 3.33 times faster than t1
+    t2 = time(.35) * PI2
   }
 
-  export function render(index) {
+  function renderLed(index) {
 
-    h = sin(index / 3 + PI2 * sin(index / 2 + t1))
+    ha = sin(index / 2 + t1)
+    h = sin(index / 3 + PI2 * ha )
     v = wave(index / 3 / PI2 + sin(index / 2 + t2))
-    v = v * v * v * v              // Gamma correction
-
-    v = v > 0.1 ? v : 0    //<<<<<<<<<<<<<<<<<<
+    v = v * v * v * v
+    
+//  v = v > .1 ? v : 0
+    v = ? v > .1 ? v : 0     // Interim ternary operator.
 
     if (h > 0) {
-      h = triangle(h) * 0.1 + 0.7
+      h = triangle(h) * .1 + .7
     }
     else {
-      h = triangle(h) * 0.05 + 0.02
+      h = triangle(h) * .05 + .02
     }
     leds[index] = hsv(h * 255, 1 * 255, v * 255)
   }

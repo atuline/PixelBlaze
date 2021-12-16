@@ -42,24 +42,28 @@
 */
 
 
-// Not done
 
-  PI2 = 6.283185
-  PI10 = PI2*5
-  PI6 = PI2*3
 
-  export function beforeRender(delta) {
-    t1 = time(0.03)*PI2
-    t2 = time(0.05)*PI2
-    t3 = time(0.04)*PI2
+
+program green_ripple_reflections {
+
+  PI2 =  6.28318
+  PI6 =  PI2 * 3
+  PI10 = PI2 * 5
+
+  function renderFrame() {
+    t1 = time(.03) * PI2
+    t2 = time(.05) * PI2
+    t3 = time(.04) * PI2
   }
 
-  export function render(index) {
-    a = sin(index*PI10/ledCount + t1)
-    a = a*a
-    b = sin(index*PI6/ledCount - t2)
+  function renderLed(index) {
+    a = sin(index * PI10 / ledCount + t1)
+    a = a * a
+    b = sin(index * PI6 / ledCount - t2)
     c = triangle((index*3/pixelCount + 1 + sin(t3))/2 % 1)
-    v = (a+b+c)/3
+    v = (a+b+c) / 3
     v = v*v
-    leds[index] = hsv(0.3*255, a*255, v*128)
+    leds[index] = hsv(.3*255, a*255, v*128)
   }
+}

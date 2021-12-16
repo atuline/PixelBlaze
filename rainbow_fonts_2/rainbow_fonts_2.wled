@@ -41,17 +41,17 @@
 program rainbow_fonts_2 {
 
   function renderFrame() {
-    PI2 = 6.283185
-    t1 =  time(0.1)
+    PI2 = 6.28318
+    t1 =  time(.1)
     scale = ledCount/2
-    offset = sin(time(0.2)* PI2) * ledCount/10
-    offsetL = offset/ledCount
+    offset = sin(time(.2) * PI2) * ledCount / 10
+    offsetL = offset / ledCount
   }
 
   function renderLed(index) {
-    c = 1-abs((index + offset) - scale)/scale
+    c = 1-abs((index + offset) - scale) / scale
     c = wave(c)
     c = wave(c + t1 + offsetL)
-    leds[index] = hsv(c*255, 255, 0.8*255)
+    leds[index] = hsv(c*255, 255, .8*255)
   }
 }

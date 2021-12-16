@@ -40,26 +40,21 @@
 */
 
 
-// Not done
-
 program snake {
   
   distance = 10
 
   function renderFrame() {
-    t1 = time(0.1)
+    t1 = time(.1)
   }
 
   function renderLed(index) {
     h = index/ledCount
     s = 1
     v = 1
-
     head = t1 * ledCount
     offset = (head - index + ledCount) % ledCount
-
     v = clamp(1 - offset / distance, 0, 1)
-    hsv(h, s, v * 255)
+    leds[index] = hsv(h * 255, s * 255, v * 255)
   }
-
 }

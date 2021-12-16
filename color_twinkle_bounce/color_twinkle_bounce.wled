@@ -38,8 +38,9 @@
 program color_twinkle_bounce {
 
   function renderFrame() {
-    t1 = time(.05)*6.28318
-    t2 = time(.05)*6.28318
+    PI2 = 6.28318
+    t1 = time(.05) * PI2
+    t2 = time(.05) * PI2
   }
 
   function renderLed(index) {

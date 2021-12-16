@@ -42,7 +42,7 @@ program firework_rocket_sparks {
 
   function renderFrame() {
     t1 = time(.05)
-    t2 = time(.0001) * 0.2
+    t2 = time(.0001) * .2
   }
 
   function renderLed(index) {
