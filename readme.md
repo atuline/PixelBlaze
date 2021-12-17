@@ -4,8 +4,6 @@
 This project was created to provide conversion of very simple PixelBlaze routines to be used by FastLED as well as the experimental Custom
 Effects interpreter for the dev branch of the Sound Reactive fork of WLED. It is not meant to be an ongoing/supported effort.
 
-It can also be used to help port them over to WLED (not currently planned).
-
 
 PixelBlaze functionality provided here includes:
 
@@ -22,8 +20,9 @@ I've also added a floating point random number generator called:
 
 Other translation included:
 
-* Conversion of PixelBlaze floating point '%' operator to the C style fmod() function.
-* An interim ternary operator.
+* Conversion of PixelBlaze floating point '%' operator to the C style fmod() function for .ino files.
+* Conversion between floating point and uint16_t random number generators.
+* An interim ternary operator for the .wled files.
 
 
 ## Not included
@@ -36,24 +35,26 @@ Other translation included:
 
 ## Background
 
-    PixelBlaze runs a non-typed Javascript style interpreted language where values are 16.16 fixed point.
+PixelBlaze runs a non-typed Javascript style interpreted language where values are 16.16 fixed point.
 
-    FastLED, on the other hand, typically works with typed 8/16 bit or floating point values.
+FastLED, on the other hand, typically works with typed 8/16 bit or floating point values.
 
-    Both PixelBlaze and FastLED have their own function calls, such as Pixelblaze's:
+Both PixelBlaze and FastLED have their own function calls, such as Pixelblaze's:
 
-    time(), triangle(), wave() and square() routines, each of which return values betwewen 0 and 1.0.
+time(), triangle(), wave() and square() routines, each of which return values betwewen 0 and 1.0.
 
-    In order to translate from PixelBlaze to FastLED, we'll resort to floating point math and convert from Javascript
-    mathematical operations to C style ones.
+In order to translate from PixelBlaze to FastLED, we'll resort to floating point math and convert from Javascript
+mathematical operations to C style ones.
 
-    For more information on PixelBlaze, see www.electromage.com.
+For more information on PixelBlaze, see www.electromage.com.
 
- ## WLED Custom Effects
 
-    Ewoud Wijma has been implementing a Custom Effects interpreter for the sound reactive fork of WLED. This language
-    is very similar to that of PixelBlaze, and he's added the above PixelBlaze routines in order to make his language
-    very similar to that of PixelBlaze.
+## WLED Custom Effects
+
+Ewoud Wijma has been implementing a Custom Effects interpreter for the sound reactive fork of WLED. This language
+is very similar to that of PixelBlaze, and he's added the above PixelBlaze routines in order to make his language
+very similar to that of PixelBlaze. That language now supports a crossbreed of WLED, FastLED as well as PixelBlaze
+functionality.
 
 
 
@@ -76,3 +77,8 @@ These were tested on an Arduino Nano, and you will need to change configuration 
 
 
 Caveat: PixelBlaze.h is not a library, it's just a hack for testing.
+
+
+## Instructions for WLED
+
+Please see: https://github.com/atuline/WLED/wiki/WLED-Custom-effects
