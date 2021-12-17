@@ -41,9 +41,9 @@ program fast_pulse {
   }
 
   function renderLed(index) {
-    v = triangle((2*wave(t1) + index/ledCount) % 1)
-    v = v*v*v*v*v
+    v = triangle((2 * wave(t1) + index / ledCount) % 1)
+    v = v * v * v * v * v
     s = v < .9
-    leds[index] = hsv(t1*255, s*255, v*255)
+    leds[index] = hsv(t1 * 255, s * 255, v * 255)
   }
 }

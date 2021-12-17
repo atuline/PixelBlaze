@@ -2,7 +2,7 @@
 ## PixelBlaze to FastLED conversions
 
 This project was created to provide conversion of very simple PixelBlaze routines to be used by FastLED as well as the experimental Custom
-Effects interpreter for the dev branch of the Sound Reactive for of WLED. It is not meant to be an ongoing/supported effort.
+Effects interpreter for the dev branch of the Sound Reactive fork of WLED. It is not meant to be an ongoing/supported effort.
 
 It can also be used to help port them over to WLED (not currently planned).
 

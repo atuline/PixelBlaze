@@ -44,10 +44,10 @@ program spin_cycle {
   }
 
   function renderLed(index) {
-    h = index/ledCount *(5 + wave(t1) * 5) + wave(t2) * 2
+    h = index / ledCount * (5 + wave(t1) * 5) + wave(t2) * 2
     h = (h % .5) + t1
-    v = triangle((index/ledCount * 5 + t1 * 10) % 1)
-    v = v*v*v
+    v = triangle((index / ledCount * 5 + t1 * 10) % 1)
+    v = v * v * v
     leds[index] = hsv(h * 255, 255, v * 255)
   }
 }

@@ -44,15 +44,11 @@ program marching_rainbow {
   }
 
   function renderLed(index) {
-    h = 1
-    v = 1
     w1 = wave(t1 + index / ledCount)
     w2 = wave(t2 - index / ledCount * 10 + .2)
     v = w1 - w2
-
     ha = wave(t1 + index / ledCount)
     h = wave(wave(ha) - index / ledCount)
-
     leds[index] = hsv(h * 255, 255, v * 255)
   }
 }

@@ -29,8 +29,6 @@
 program firework_dust {
   
   function renderFrame() {
-    v = random() / 65535 > .9
-    leds[random()] = hsv(random() * 255, 255, v * 255)
+    leds[random()] = hsv(random(), 255, (random() > 58000) * 255)
   }
-
 }

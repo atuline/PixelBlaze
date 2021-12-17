@@ -44,11 +44,11 @@ program millipede {
 
   function renderLed(index) {
     ha = index + time(.1) * ledCount
-    hb = (ha/ledCount * 5) % .5
-    hc = index/ledCount + wave(t1)
+    hb = (ha / ledCount * 5) % .5
+    hc = index / ledCount + wave(t1)
     h = (hb + hc)
     v = wave(h + t2)
-    v=v*v
-    leds[index] = hsv(h*255,255,v*255)
+    v=v * v
+    leds[index] = hsv(h * 255, 255, v * 255)
   }
 }

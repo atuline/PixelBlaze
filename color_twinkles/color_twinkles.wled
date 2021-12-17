@@ -37,6 +37,7 @@
 
 
 program color_twinkles {
+
   function renderFrame() {
     PI2 = 6.28318
     t1 = time(.15) * PI2
@@ -44,10 +45,14 @@ program color_twinkles {
   }
 
   function renderLed(index) {
-    aa = index / 3 + PI2 * sin(index/2+t1)
-    a = (1+sin(aa))/2
-    bb = index/3 + PI2*sin(index/2+t2)
+    aa = index / 3 + PI2 * sin(index / 2 + t1)
+    a = (1 + sin(aa)) / 2
+
+    a = ? a > .1 ? a : 0                         // Interim ternary operator
+//  a = a > .1 ? a : 0    
+
+    bb = index / 3 + PI2 * sin(index / 2 + t2)
     b = sin(bb)
-    leds[index] = hsv(b*255,255,a*128)
+    leds[index] = hsv(b * 255, 255, a * 255)
   }
 }

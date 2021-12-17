@@ -39,7 +39,7 @@
 
 program slow_color_shift {
 
-  l4 = ledCount * 4
+  h4 = ledCount * 4
 
   function renderFrame() {
     PI2 = 6.283185
@@ -51,8 +51,8 @@ program slow_color_shift {
     a1 = index / 2 + 5 * sin(t1)
     a = (1 + sin(a1)) / 2
     b1 = index / 2 + 5 * sin(t1)
-    b = (t2 + 1 + sin(b1) / 5 ) + index / l4
+    b = (t2 + 1 + sin(b1) / 5 ) + index / h4
     v = a * a * a * a
-    leds[index] = hsv(b*255, 255, v*255)
+    leds[index] = hsv(b * 255, 255, v * 255)
   }
 }

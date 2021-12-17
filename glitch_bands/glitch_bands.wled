@@ -58,13 +58,9 @@ program glitch_bands {
   }
 
  function renderLed(index) {
-    h = 1
-    s = 1
-    v = 1
-
     h = sin(t1)
     m = (.3 + triangle(t2) * .2)
-    h1 = (index - ledCount /2)
+    h1 = (index - ledCount / 2)
     h2 = triangle(t3) * 10 + 4 * sin(t4)
     h = h + ((h1 / ledCount * ( h2) % m))
     s1 = triangle((t5 + index / ledCount * 5) % 1)
@@ -73,6 +69,6 @@ program glitch_bands {
     s2 = triangle((t6 - (index - ledCount) / ledCount) % 1)
     s = 1 - triangle(s1 * s2)
     v = (s1 > s2) + .5
-    leds[index] = hsv(h*255, s*255, v*255)
+    leds[index] = hsv(h * 255, s * 255, v * 255)
   }
 }

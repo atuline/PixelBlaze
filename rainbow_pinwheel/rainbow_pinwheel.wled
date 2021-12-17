@@ -42,8 +42,6 @@ program rainbow_pinwheel{
 
   function renderLed(index) {
     h = wave(t1 + index / ledCount)
-    s = 2
-    v = 1
-    leds[index] = hsv(h*255, s*255, v*255)
+    leds[index] = hsv(h * 255, 255, 255)
   }
 }

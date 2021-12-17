@@ -57,8 +57,8 @@ program halloween_color_twinkles {
     v = wave(index / 3 / PI2 + sin(index / 2 + t2))
     v = v * v * v * v
     
-//  v = v > .1 ? v : 0
     v = ? v > .1 ? v : 0     // Interim ternary operator.
+    //  v = v > .1 ? v : 0
 
     if (h > 0) {
       h = triangle(h) * .1 + .7

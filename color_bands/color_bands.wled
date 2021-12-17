@@ -47,14 +47,12 @@ program color_bands {
   }
 
   function renderLed(index) {
-    h = index/(ledCount/2)
-    s = wave(-index/3 + t2)
-    s = 1-s*s*s*s
-
-    v = wave(index/2 + t3) * wave(index/5 - t3)
-    v = v + wave(index/7 + t3)
-    v = v*v*v*v
-
+    h = index / (ledCount / 2)
+    s = wave(-index / 3 + t2)
+    s = 1 - s * s * s * s
+    v = wave(index / 2 + t3) * wave(index / 5 - t3)
+    v = v + wave(index / 7 + t3)
+    v = v * v * v * v
     leds[index] = hsv(h * 255, s * 255, v * 255)
   }
 }

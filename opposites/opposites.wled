@@ -48,17 +48,17 @@ program opposites {
   }
 
   function renderLed(index) {
-    il = index/ledCount
+    il = index / ledCount
     w1 = wave(t1 + il)
     w2 = wave(t2 - il)
     w3 = wave((il + w1 + w2 ) % 1)
     h = w3 % .3
- //   h = (h >  .15 ? h : h + .5) + t1
-    h = ( ? h >  .15 ? h : h + .5) + t1   // Interim ternary operator
-    s = 1
-    v = ((w1 + .1) * (w2 + .1) * (w3 + .1))
-    v = v*v
-    leds[index] = hsv(h*255,s*255,v*255)
-  }
 
+//  h = (h >  .15 ? h : h + .5) + t1
+    h = ( ? h >  .15 ? h : h + .5) + t1   // Interim ternary operator
+
+    v = ((w1 + .1) * (w2 + .1) * (w3 + .1))
+    v = v * 2
+    leds[index] = hsv(h * 255, 255, v * 255)
+  }
 }

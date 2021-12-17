@@ -54,6 +54,6 @@ program rainbow_melt {
     c3 = wave(c2 + t1)
     v = wave(c3 + t1)
     v = v * v
-    leds[index] = hsv((c1 + t2)*255, 255, v*255)
+    leds[index] = hsv((c1 + t2) * 255, 255, v * 255)
   }
 }
